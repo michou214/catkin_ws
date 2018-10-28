@@ -120,13 +120,17 @@ fi
 
 ### ROS
 source /opt/ros/kinetic/setup.bash
-echo [DONE] Source 
+echo DONE Source 
 source ~/catkin_ws/devel/setup.bash
-echo [DONE] catkin_ws sourcing 
+echo DONE catkin_ws sourcing 
 source ~/project_ws/devel/setup.bash
-echo [DONE] project_ws sourcing 
-. ~/project_ws/devel/setup.bash
-echo [DONE] Add the workspace to ROS 
+echo DONE project_ws sourcing 
+#. ~/catkin_ws/devel/setup.bash
+#. ~/project_ws/devel/setup.bash
+### Follow https://dev.px4.io/en/ros/mavros_installation.html
+#wstool init ~/catkin_ws/src
+#echo DONE = wstool init WS
+
 
 
 echo ------ BASHRC END ------
