@@ -120,9 +120,13 @@ fi
 
 ### ROS
 source /opt/ros/kinetic/setup.bash
+echo [DONE] Source 
 source ~/catkin_ws/devel/setup.bash
+echo [DONE] catkin_ws sourcing 
 source ~/project_ws/devel/setup.bash
-
+echo [DONE] project_ws sourcing 
+. ~/project_ws/devel/setup.bash
+echo [DONE] Add the workspace to ROS 
 
 
 echo ------ BASHRC END ------
