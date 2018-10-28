@@ -132,6 +132,24 @@ echo DONE project_ws sourcing
 #echo DONE = wstool init WS
 
 
+### PX4 => STIL and MAVROS
+cd /usr/local/PX4/src/Firmware
+make posix_sitl_default gazebo
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/posix_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+
+### Gazebo from https://github.com/PX4/sitl_gazebo
+# Set the plugin path so Gazebo finds our model and sim
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$HOME/src/sitl_gazebo/Build
+# Set the model path so Gazebo finds the airframes
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$HOME/src/sitl_gazebo/models
+# Disable online model lookup since this is quite experimental and unstable
+export GAZEBO_MODEL_DATABASE_URI=""
+# Add the the root location of this repository
+export SITL_GAZEBO_PATH=$HOME/src/sitl_gazebo
+
+
 
 echo ------ BASHRC END ------
 echo
