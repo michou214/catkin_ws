@@ -133,7 +133,7 @@ echo DONE project_ws sourcing
 
 
 ### PX4 => STIL and MAVROS
-cd /usr/local/PX4/src/Firmware
+cd ~/src/Firmware
 make posix_sitl_default gazebo
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/posix_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
